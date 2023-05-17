@@ -1,0 +1,21 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "private": true,
+  "devDependencies": {
+    "@nrwl/js": "^16.2.1",
+    "nx": "16.2.1",
+    "typescript": "^5.0.2"
+  },
+  "scripts": {
+    "vite:start": "yarn workspace react-vite dev",
+    "express:start": "yarn workspace node-express dev",
+    "dev":"npx nx run-many --target=dev"
+  }
+}

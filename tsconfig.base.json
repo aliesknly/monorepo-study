@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowJs": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "importHelpers": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@monorepo/ui": ["./package/ui/src/index.ts"],
+      "@monorepo/client": ["./package/client/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
