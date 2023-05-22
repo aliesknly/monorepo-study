@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { UserObject } from '../Domain/schema/user.schema';
+import { UserObject } from '../Domain/schema';
 import { CreateUserDTO, ShowCreateUserDTO } from '../Domain/dto';
 import { InjectModel } from '@nestjs/mongoose';
 
@@ -12,7 +12,10 @@ export class UserService {
 
   async createUser(createUserDto: CreateUserDTO): Promise<ShowCreateUserDTO> {
     const newUser = await this.userModel.create(createUserDto);
-    return newUser.save();
+    const savedUser = await newUser.save();
+    const user = savedUser.toObject();
+    delete user.password;
+    return user;
   }
 
   getUser(): string {
