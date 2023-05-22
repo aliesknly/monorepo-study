@@ -1,7 +1,6 @@
-export interface User {
-  email: string;
-  password: string;
+export interface ShowCreateUserDTO {
   name: string;
+  email: string;
   lastName?: string;
   birthDate?: string;
 }
