@@ -8,14 +8,14 @@ import {
   Delete,
 } from '@nestjs/common';
 import { UsersService } from '../UseCase';
-import { CreateUserDto, UpdateUserDto } from '../Domain/dto';
+import { CreateUserDto, ShowUserDto, UpdateUserDto } from '../Domain/dto';
 
 @Controller('user')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
+  async create(@Body() createUserDto: CreateUserDto): Promise<ShowUserDto> {
     return await this.usersService.create(createUserDto);
   }
 

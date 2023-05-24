@@ -11,7 +11,8 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto): Promise<ShowUserDto> {
     const newUser = await this.user.create(createUserDto);
-    return newUser.save();
+    newUser.save();
+    return this.user.findOne({ email: createUserDto.email });
   }
 
   findAll() {
