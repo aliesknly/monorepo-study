@@ -1,11 +1,12 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Document } from 'mongoose';
-import { User } from '../user.domain';
 import { ApiProperty } from '@nestjs/swagger';
-export type UserDocument = HydratedDocument<User>;
+import UserEntity from '../entities/user.entity';
+
+export type UserDocument = HydratedDocument<UserEntity>;
 
 @Schema()
-export class UserObject extends Document {
+export class User extends Document<UserEntity> {
   @Prop()
   @ApiProperty({ example: 'Juan', description: 'Name of user' })
   name: string;
@@ -27,4 +28,4 @@ export class UserObject extends Document {
   birthDate: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(UserObject);
+export const UserSchema = SchemaFactory.createForClass(User);
