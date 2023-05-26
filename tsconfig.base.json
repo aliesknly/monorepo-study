@@ -18,9 +18,18 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@monorepo/ui": ["./package/ui/src/index.ts"],
-      "@monorepo/client": ["./package/client/src/index.ts"]
+      "@monorepo/client": [
+        "./package/client/src/index.ts"
+      ],
+      "@monorepo/ui": [
+        "./package/ui/src/index.ts"
+      ],
+      "@monorepo/utilities": [
+        "./package/utilities/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

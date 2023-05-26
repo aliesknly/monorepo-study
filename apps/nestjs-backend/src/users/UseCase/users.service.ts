@@ -4,6 +4,7 @@ import { UpdateUserDto } from '../Domain/dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from '../Domain/schema';
 import { Model } from 'mongoose';
+import { deleteProperty } from '../../utilities';
 
 @Injectable()
 export class UsersService {
@@ -11,8 +12,7 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto): Promise<ShowUserDto> {
     const newUser = await this.user.create(createUserDto);
-    newUser.save();
-    return this.user.findOne({ email: createUserDto.email });
+    return deleteProperty<ShowUserDto>(newUser.toObject(), 'password');
   }
 
   findAll() {
